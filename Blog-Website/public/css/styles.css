@@ -313,4 +313,9 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .img-container{
+    opacity: 0;
+  }
+
 }
