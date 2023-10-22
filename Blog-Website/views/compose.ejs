@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg">
+      <div class="navbar-header">
+        <p class="navbar-brand">DAILY BLOGGER</p>
+      </div>
+        <ul class="nav navbar-nav navbar-right">
+          <!-- 6 -->
+          <li id="home"><a href="/">HOME</a></li>
+          <li id="profile"><a href="/profile">PROFILE</a></li>
+          <li id="contact"><a href="/contact">CONTACT US</a></li>
+        </ul>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <h1>Compose</h1>
+  <form class="" action="/compose" method="post">
+  <div class="mb-3">
+    <label for="postTitle" class="form-label">Title</label>
+    <input name="composeTitle" type="text" class="form-control" id="postTitle">
+    </div>
+    <div class="mb-3">
+    <label for="postBody" class="form-label">Post</label>
+    <textarea name="composeBody" class="form-control" id="postBody" rows="4"></textarea>
+    </div>
+    <button type="submit" class="composeBtn btn btn-primary" name="button">Publish</button>
+  </form>
+</div>
+
+
+<%- include("partials/footer") %>

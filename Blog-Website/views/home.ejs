@@ -1,0 +1,73 @@
+<%- include("partials/header") %>
+
+<script>
+  function clickFun() {
+    window.location = '/compose';
+  }
+</script>
+
+<section id="title">
+
+  <div class="main-container">
+    <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="navbar-header">
+        <p class="navbar-brand">DAILY BLOGGER</p>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <form class="d-flex searchbar" role="search" action="/search" method="POST">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchcontent">
+          <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="home"><a href="/">HOME</a></li>
+          <li id="profile"><a href="/profile">PROFILE</a></li>
+          <li id="contact"><a href="/contact">CONTACT US</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="row quote-container">
+      <h1 class="main-quote">Publish Your Passion.</h1>
+      <h3 class="tagline">Create your own blog post.</h3>
+      <button type="button" class="btn btn-outline-light compose-button" onclick="clickFun()">Create your blog</button>
+    </div>
+  </div>
+</section>
+
+<section id="quote-block">
+
+  <h2>Choose the perfect design</h2>
+  <p>Create a beautiful blog that fits your style. Choose from a selection of easy-to-use templates all with flexible layouts and hundreds of background images or design something new.</p>
+
+  <div class="container-fluid img-container">
+    <img src="https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEiKQBhcVtj--7thQ1JzOgtxMAjmy2cg09uEwEj62zYpgTwvLBCJSAvhmxuvL1DZrtOQ9409UIX0dyxPEY3ofOYElLwjGkEiLoVJk7tZfb-in_OymeFMdLREF0TETdMIKQBd6_9DuUGUnP-Nn28MNUwum8PJ_AdDwJy7Ook/w1200" class="pic1">
+    <img src="https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEjx779LcNXLMs6EgJdNpXYj5ocZc8vwDXHxdTVdlD48ClrgYXizupcdXgNMZpYUk7tgptCX20JBvJCcqaMfVF1FHpO2-I4LwRiU7OkMVThYTi5HDOwPt_2lcPmOxZWwfOANOTDJnR62CvGYtnhW_UAExYixMVgLjL8htGM/w1024" class="pic2">
+    <img src="https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEhnuGlBA9tyNRHqAquiFF2wDdz3bCI9KAWyEZssNus8av4wwPso-clZ1aBY5QC64nsZwWOwH6ufJ8WCYMLazqCvJxdUeJKzUJuWFaVnAFEiHesS5t0Zl2bAjmw1TFtvPJ856dwlpBPHsSk4MPvzix3ZNPyGLffAUuew/w512" class="pic3">
+
+  </div>
+
+</section>
+
+<section id="posts">
+  <h1 class="blog-quote">BLOGGING...A Way to Inspire..<br> Empower<br> and Educate the World.</h1>
+  <hr style="color: black;">
+
+  <div class="container-fluid">
+    <h2>Posts</h2>
+      <div class="post-card">
+        <% posts.forEach(function(post){ %>
+          <h1><%= post.Title %></h1>
+          <p>
+            <%= post.Content.substring(0, 200) + " ..." %> <a href="/posts/<%= post._id %>">View full post</a>
+          </p>
+          <hr>
+        <% }); %>
+      </div>
+  </div>
+
+</section>
+
+<%- include("partials/footer") %>
